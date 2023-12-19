@@ -8,6 +8,10 @@ fetch(url).then((data)=>{
    //objectData.hits[0].recipe.ingredients
    //objectData.hits[0].recipe.instructionLines
     console.log(objectData.hits[0].recipe);
+    console.log(objectData.hits[0].recipe.image);
+    console.log(objectData.hits[0].recipe.label);
+    console.log(objectData.hits[0].recipe.ingredients);
+    console.log(objectData.hits[0].recipe.instructionLines);
     document.getElementById("data-output")
 });
 // }
