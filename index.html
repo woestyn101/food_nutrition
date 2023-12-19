@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/Css/style.css">
-  <title>Document</title>
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/Css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Diet -->
 
-  <script src="./assets/js/script.js"></script>
-</body>
+    <label for="dietDropdown">Select a Diet:</label>
+    <select id="dietDropdown" onchange="saveDietSelection()">
+      <option value="balanced">Balanced</option>
+      <option value="highFiber">High-Fiber</option>
+      <option value="highProtein">High-Protein</option>
+      <option value="lowCarb">Low-Carb</option>
+      <option value="lowFat">Low-Fat</option>
+      <option value="lowSodium">Low-Sodium</option>
+    </select>
+
+    <!-- Health -->
+
+    <label for="healthDropdown">Select Health Preferences:</label>
+    <select id="healthDropdown" onchange="saveHealthSelection()">
+      <option value="dairyFree">None</option>
+      <option value="dairyFree">Dairy-Free</option>
+      <option value="glutenFree">Gluten-Free</option>
+      <option value="kosher">Kosher</option>
+      <option value="ketoFriendly">Keto-Friendly</option>
+    </select>
+
+    <!-- cuisine types -->
+
+    <label for="cuisineDropdown">Select Cuisine Type:</label>
+    <select id="cuisineDropdown" onchange="saveCuisineSelection()">
+      <option value="american">American</option>
+      <option value="asian">Asian</option>
+      <option value="southAmerican">South American</option>
+      <option value="mexican">Mexican</option>
+    </select>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
