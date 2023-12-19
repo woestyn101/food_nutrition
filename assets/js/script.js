@@ -1,3 +1,7 @@
+var url= ("https://api.edamam.com/api/recipes/v2?type=public&app_id=d4007c46&app_key=%2085bfb7e1ed3ea9ce64f383de10f21d71") ;
+
+
+
 // Retrieve the saved diet selection from local storage
 var savedDiet = localStorage.getItem("selectedDiet");
 
