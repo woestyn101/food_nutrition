@@ -1,3 +1,20 @@
+var url= ("https://api.edamam.com/api/recipes/v2?type=public&app_id=d4007c46&app_key=%2085bfb7e1ed3ea9ce64f383de10f21d71&diet=high-protein") ;
+// function getApi(){
+fetch(url).then((data)=>{
+    return data.json();
+}).then((objectData)=>{
+   //objectData.hits[0].recipe.image
+   //objectData.hits[0].recipe.label
+   //objectData.hits[0].recipe.ingredients
+   //objectData.hits[0].recipe.instructionLines
+    console.log(objectData.hits[0].recipe);
+    console.log(objectData.hits[0].recipe.image);
+    console.log(objectData.hits[0].recipe.label);
+    console.log(objectData.hits[0].recipe.ingredients);
+    console.log(objectData.hits[0].recipe.instructionLines);
+    document.getElementById("data-output")
+});
+// }
 // Retrieve the saved diet selection from local storage
 var savedDiet = localStorage.getItem("selectedDiet");
 
