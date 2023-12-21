@@ -16,6 +16,14 @@ fetch(url)
     console.log(objectData.hits[0].recipe.ingredients);
     console.log(objectData.hits[0].recipe.instructionLines);
     document.getElementById("data-output");
+   
+    // get ingredients from Api
+    var theIngredients = objectData.hits[0].recipe.ingredients;
+
+    for (const key in theIngredients ){
+        //console.log(`${key}: ${theIngredients[key].text}`);
+        console.log(theIngredients[key].text);
+    }
   });
 // }
 // Retrieve the saved diet selection from local storage
