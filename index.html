@@ -69,7 +69,7 @@
           <form id="project-form">
             <div class="modal-header custom-modal-header">
               <h5 class="modal-title" id="new-project-modal-label">
-                Add a new project
+                Search your favorite recipe:
               </h5>
               <button
                 type="button"
@@ -91,9 +91,9 @@
                   <option value="lowFat">Low-Fat</option>
                   <option value="lowSodium">Low-Sodium</option>
                 </select>
-
-                <!-- Health -->
-
+              </div>
+              <!-- Health -->
+              <div class="mb-3">
                 <label for="healthDropdown">Select Health Preferences:</label>
                 <select id="healthDropdown" onchange="saveHealthSelection()">
                   <option value="dairyFree">None</option>
@@ -102,9 +102,9 @@
                   <option value="kosher">Kosher</option>
                   <option value="ketoFriendly">Keto-Friendly</option>
                 </select>
-
-                <!-- cuisine types -->
-
+              </div>
+              <!-- cuisine types -->
+              <div class="mb-3">
                 <label for="cuisineDropdown">Select Cuisine Type:</label>
                 <select id="cuisineDropdown" onchange="saveCuisineSelection()">
                   <option value="american">American</option>
@@ -113,7 +113,6 @@
                   <option value="mexican">Mexican</option>
                 </select>
               </div>
-              <div class="mb-3"></div>
             </div>
             <div class="modal-footer">
               <!--
@@ -132,7 +131,7 @@
                 class="btn btn-custom"
                 data-bs-dismiss="modal"
               >
-                Add Project
+                Lookup
               </button>
             </div>
           </form>
