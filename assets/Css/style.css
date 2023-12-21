@@ -1,3 +1,6 @@
-header{
-
+body{
+  background-color: #FF7E01;
+}
+.rightwing{
+  transform: scaleX(-1);
 }
