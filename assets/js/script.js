@@ -24,6 +24,16 @@ fetch(url)
         //console.log(`${key}: ${theIngredients[key].text}`);
         console.log(theIngredients[key].text);
     }
+
+    // getting instructions from recipe
+    var theInstructions = objectData.hits[0].recipe.instructionLines;
+
+    console.log(typeof(theInstructions));
+
+    for (const key in theInstructions ){
+       
+        console.log(theInstructions[key]);
+    }
   });
 // }
 // Retrieve the saved diet selection from local storage
