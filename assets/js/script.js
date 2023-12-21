@@ -1,5 +1,5 @@
 var url =
-  "https://api.edamam.com/api/recipes/v2?type=public&app_id=d4007c46&app_key=%2085bfb7e1ed3ea9ce64f383de10f21d71&diet=high-protein";
+  "https://api.edamam.com/api/recipes/v2?type=public&q=Chicken&app_id=d4007c46&app_key=910d9b26c4011ee69fc785d5f7c6b120";
 // function getApi(){
 fetch(url)
   .then((data) => {
