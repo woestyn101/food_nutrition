@@ -1,4 +1,6 @@
 var showIngredientList = document.getElementById("showIngredientList");
+var showIngredientList2 = document.getElementById("showIngredientList2");
+var showIngredientList3 = document.getElementById("showIngredientList3");
 
 var theIngredients;
 var ingredientsArray;
@@ -50,7 +52,26 @@ fetch(url)
         var liE = document.createElement("li");
         liE.innerText = ingredientsArray[i];
         showIngredientList.appendChild(liE);
+        
       }
+
+      for (var i = 0; i < ingredientsArray.length; i++) {
+        var liE = document.createElement("li");
+        liE.innerText = ingredientsArray[i];
+        showIngredientList2.appendChild(liE);
+        
+      }
+
+      for (var i = 0; i < ingredientsArray.length; i++) {
+        var liE = document.createElement("li");
+        liE.innerText = ingredientsArray[i];
+        showIngredientList3.appendChild(liE);
+        
+      }
+
+
+
+
     }
 
     // getting instructions from recipe
