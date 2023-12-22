@@ -15,19 +15,32 @@
 
   <body>
     <!-- header -->
-    <header class="navbar bg-body-tertiary ">
+    <header class="navbar bg-body-tertiary">
       <div class="container-fluid justify-content-center">
         <h1>
-          <img  class="align-middle" src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-top ">
+          <img
+            class="align-middle"
+            src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png"
+            alt="Logo"
+            width="50"
+            height="50"
+            class="d-inline-block align-text-top"
+          />
           Chicken recipes
         </h1>
-        <img class="rightwing" src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png" alt="" width="100" height="100">
+        <img
+          class="rightwing"
+          src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png"
+          alt=""
+          width="50"
+          height="50"
+        />
       </div>
     </header>
 
     <main class="container-fluid">
       <div class="row">
-        <div class="col-md col-xl-4">
+        <div class="col-md">
           <!-- Add project form and instructions -->
           <div class="card mb-3">
             <h2 class="h4 card-header custom-card-header">Instructions</h2>
@@ -88,19 +101,15 @@
                   <option value="highFiber">High-Fiber</option>
                   <option value="highProtein">High-Protein</option>
                   <option value="lowCarb">Low-Carb</option>
-                  <option value="lowFat">Low-Fat</option>
-                  <option value="lowSodium">Low-Sodium</option>
                 </select>
               </div>
-              <!-- Health -->
+              <!-- Meal types -->
               <div class="mb-3">
-                <label for="healthDropdown">Select Health Preferences:</label>
-                <select id="healthDropdown" onchange="saveHealthSelection()">
-                  <option value="dairyFree">None</option>
-                  <option value="dairyFree">Dairy-Free</option>
-                  <option value="glutenFree">Gluten-Free</option>
-                  <option value="kosher">Kosher</option>
-                  <option value="ketoFriendly">Keto-Friendly</option>
+                <label for="mealTypesDropdown">Meal Types</label>
+                <select id="mealTypesDropdown" onchange="mealTypesDropdown()">
+                  <option value="dairyFree">breakfast</option>
+                  <option value="dairyFree">lunch</option>
+                  <option value="glutenFree">dinner</option>
                 </select>
               </div>
               <!-- cuisine types -->
@@ -109,7 +118,7 @@
                 <select id="cuisineDropdown" onchange="saveCuisineSelection()">
                   <option value="american">American</option>
                   <option value="asian">Asian</option>
-                  <option value="southAmerican">South American</option>
+                  <option value="southAmerican">world</option>
                   <option value="mexican">Mexican</option>
                 </select>
               </div>
