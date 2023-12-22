@@ -21,49 +21,45 @@ fetch(url)
     console.log(objectData.hits[0].recipe.ingredients);
     console.log(objectData.hits[0].recipe.instructionLines);
     document.getElementById("data-output");
-   
+
     // get ingredients from Api
     var theIngredients = objectData.hits[0].recipe.ingredients;
 
-    for (const key in theIngredients ){
-        //console.log(`${key}: ${theIngredients[key].text}`);
-        console.log(theIngredients[key].text);
+    for (const key in theIngredients) {
+      //console.log(`${key}: ${theIngredients[key].text}`);
+      console.log(theIngredients[key].text);
     }
 
     //theIngredients = objectData.hits[0].recipe.ingredients
-    
-displayIngredients(theIngredients);
 
-function displayIngredients(theIngredientsR){
-    
-  ingredientsArray = [];
- 
-  console.log("match");
-  for (const key in theIngredientsR ){
-      //console.log(`${key}: ${theIngredients[key].text}`);
-      console.log(theIngredientsR[key].text);
-      ingredientsArray.push(theIngredientsR[key].text);
-  }
+    displayIngredients(theIngredients);
 
-  console.log(ingredientsArray);
+    function displayIngredients(theIngredientsR) {
+      ingredientsArray = [];
 
-  for (var i = 0; i < ingredientsArray.length; i++){
-      var liE = document.createElement("li");
-      liE.innerText = ingredientsArray[i];
-      showIngredientList.appendChild(liE);
-      
-     }
- }
+      console.log("match");
+      for (const key in theIngredientsR) {
+        //console.log(`${key}: ${theIngredients[key].text}`);
+        console.log(theIngredientsR[key].text);
+        ingredientsArray.push(theIngredientsR[key].text);
+      }
 
+      console.log(ingredientsArray);
+
+      for (var i = 0; i < ingredientsArray.length; i++) {
+        var liE = document.createElement("li");
+        liE.innerText = ingredientsArray[i];
+        showIngredientList.appendChild(liE);
+      }
+    }
 
     // getting instructions from recipe
     var theInstructions = objectData.hits[0].recipe.instructionLines;
 
-    console.log(typeof(theInstructions));
+    console.log(typeof theInstructions);
 
-    for (const key in theInstructions ){
-       
-        console.log(theInstructions[key]);
+    for (const key in theInstructions) {
+      console.log(theInstructions[key]);
     }
   });
 // }
@@ -83,19 +79,24 @@ function saveDietSelection() {
 }
 
 // Retrieve the saved health selection from local storage
-var savedHealthPreference = localStorage.getItem("selectedHealthPreference");
+var savedMealTypePreference = localStorage.getItem(
+  "selectedMealTypePreference"
+);
 
 // Set the dropdown value to the saved health preference, if available
-if (savedHealthPreference) {
-  document.getElementById("healthDropdown").value = savedHealthPreference;
+if (savedMealTypePreference) {
+  document.getElementById("MealTypeDropdown").value = savedMealTypePreference;
 }
 
-function saveHealthSelection() {
-  var selectedHealthPreference =
-    document.getElementById("healthDropdown").value;
+function saveMealTypeSelection() {
+  var selectedMealTypePreference =
+    document.getElementById("MealTypeDropdown").value;
 
   // Save the selected health preference to local storage
-  localStorage.setItem("selectedHealthPreference", selectedHealthPreference);
+  localStorage.setItem(
+    "selectedMealTypePreference",
+    selectedMealTypePreference
+  );
 }
 
 // Retrieve the saved cuisine selection from local storage
@@ -112,4 +113,3 @@ function saveCuisineSelection() {
   // Save the selected cuisine type to local storage
   localStorage.setItem("selectedCuisineType", selectedCuisineType);
 }
-

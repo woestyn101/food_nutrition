@@ -15,19 +15,32 @@
 
   <body>
     <!-- header -->
-    <header class="navbar bg-body-tertiary ">
+    <header class="navbar bg-body-tertiary">
       <div class="container-fluid justify-content-center">
         <h1>
-          <img  class="align-middle" src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+          <img
+            class="align-middle"
+            src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png"
+            alt="Logo"
+            width="50"
+            height="50"
+            class="d-inline-block align-text-top"
+          />
           Chicken recipes
         </h1>
-        <img class="rightwing" src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png" alt="" width="50" height="50">
+        <img
+          class="rightwing"
+          src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png"
+          alt=""
+          width="50"
+          height="50"
+        />
       </div>
     </header>
 
     <main class="container-fluid">
       <div class="row">
-        <div class="col-md ">
+        <div class="col-md">
           <!-- Add project form and instructions -->
           <div class="card mb-3">
             <h2 class="h4 card-header custom-card-header">Instructions</h2>
@@ -84,6 +97,7 @@
 
                 <label for="dietDropdown">Select a Diet:</label>
                 <select id="dietDropdown" onchange="saveDietSelection()">
+                  <option value="none">None</option>
                   <option value="balanced">Balanced</option>
                   <option value="high-Fiber">High-Fiber</option>
                   <option value="high-Protein">High-Protein</option>
@@ -94,8 +108,12 @@
               </div>
               <!-- Meal -->
               <div class="mb-3">
-                <label for="healthDropdown">Meal Types</label>
-                <select id="healthDropdown" onchange="saveHealthSelection()">
+                <label for="MealTypeDropdown">Meal Types</label>
+                <select
+                  id="MealTypeDropdown"
+                  onchange="saveMealTypeSelection()"
+                >
+                  <option value="none">None</option>
                   <option value="breakfast">breakfast</option>
                   <option value="lunch">lunch</option>
                   <option value="dinner">dinner</option>
@@ -105,6 +123,7 @@
               <div class="mb-3">
                 <label for="cuisineDropdown">Select Cuisine Type:</label>
                 <select id="cuisineDropdown" onchange="saveCuisineSelection()">
+                  <option value="none">None</option>
                   <option value="american">American</option>
                   <option value="asian">Asian</option>
                   <option value="southAmerican">world</option>
@@ -117,6 +136,7 @@
                 The data-bs-dismiss attribute tells Bootstrap to hide the <div
                 class="modal-footer"> element on click.
               -->
+
               <button
                 type="button"
                 class="btn btn-outline-secondary"
