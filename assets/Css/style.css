@@ -13,3 +13,23 @@ ul {
   text-align: left;
   font-size: 0.7rem;
 }
+
+.modalBtn {
+  background-color: #299d8f;
+  color:white
+}
+
+.modal-color {
+  background-color: #ff7e01;
+}
+
+/* .modalBtnCancel {
+  background-color: red;
+} */
+.modalBtnLookup {
+  background-color: #299d8f;
+}
+.modalBtnLookup:hover {
+  background-color: #107b6e;
+  color:white;
+}
