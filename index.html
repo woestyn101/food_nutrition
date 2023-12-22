@@ -15,32 +15,19 @@
 
   <body>
     <!-- header -->
-    <header class="navbar bg-body-tertiary">
+    <header class="navbar bg-body-tertiary ">
       <div class="container-fluid justify-content-center">
         <h1>
-          <img
-            class="align-middle"
-            src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png"
-            alt="Logo"
-            width="50"
-            height="50"
-            class="d-inline-block align-text-top"
-          />
+          <img  class="align-middle" src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
           Chicken recipes
         </h1>
-        <img
-          class="rightwing"
-          src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png"
-          alt=""
-          width="50"
-          height="50"
-        />
+        <img class="rightwing" src="./assets/Photos/—Pngtree—fast food chicken drumstick fried_5746705.png" alt="" width="50" height="50">
       </div>
     </header>
 
     <main class="container-fluid">
       <div class="row">
-        <div class="col-md">
+        <div class="col-md ">
           <!-- Add project form and instructions -->
           <div class="card mb-3">
             <h2 class="h4 card-header custom-card-header">Instructions</h2>
@@ -101,12 +88,14 @@
                   <option value="highFiber">High-Fiber</option>
                   <option value="highProtein">High-Protein</option>
                   <option value="lowCarb">Low-Carb</option>
+                  <option value="lowFat">Low-Fat</option>
+                  <option value="lowSodium">Low-Sodium</option>
                 </select>
               </div>
-              <!-- Meal types -->
+              <!-- Meal -->
               <div class="mb-3">
-                <label for="mealTypesDropdown">Meal Types</label>
-                <select id="mealTypesDropdown" onchange="mealTypesDropdown()">
+                <label for="healthDropdown">Meal Types</label>
+                <select id="healthDropdown" onchange="saveHealthSelection()">
                   <option value="dairyFree">breakfast</option>
                   <option value="dairyFree">lunch</option>
                   <option value="glutenFree">dinner</option>
