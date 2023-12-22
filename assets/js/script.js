@@ -1,6 +1,9 @@
 var showIngredientList = document.getElementById("showIngredientList");
 var showIngredientList2 = document.getElementById("showIngredientList2");
 var showIngredientList3 = document.getElementById("showIngredientList3");
+var showImage1 = document.getElementById("recipeImage01");
+var showImage2 = document.getElementById("recipeImage02");
+var showImage3 = document.getElementById("recipeImage03");
 
 var theIngredients;
 var ingredientsArray;
@@ -23,6 +26,10 @@ fetch(url)
     console.log(objectData.hits[0].recipe.ingredients);
     console.log(objectData.hits[0].recipe.instructionLines);
     document.getElementById("data-output");
+
+    showImage1.src = objectData.hits[0].recipe.image;
+    showImage2.src = objectData.hits[0].recipe.image;
+    showImage3.src = objectData.hits[0].recipe.image;
 
     // get ingredients from Api
     var theIngredients = objectData.hits[0].recipe.ingredients;

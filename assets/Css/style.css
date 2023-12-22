@@ -4,3 +4,11 @@ body{
 .rightwing{
   transform: scaleX(-1);
 }
+
+.recipeImages {
+  width: 90%;
+}
+
+ul {
+  text-align: left;
+}
