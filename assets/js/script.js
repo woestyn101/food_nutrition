@@ -1,12 +1,24 @@
+//ingredient variables
+
 var showIngredientList = document.getElementById("showIngredientList");
 var showIngredientList2 = document.getElementById("showIngredientList2");
 var showIngredientList3 = document.getElementById("showIngredientList3");
+
+// instructions variables 
+var showInstructionsList = document.getElementById("showInstructionList");
+var showInstructionsList2 = document.getElementById("showInstructionList2");
+var showInstructionsList3 = document.getElementById("showInstructionList3");
+
+// images variables from html
 var showImage1 = document.getElementById("recipeImage01");
 var showImage2 = document.getElementById("recipeImage02");
 var showImage3 = document.getElementById("recipeImage03");
 
-var theIngredients;
+// setting ingredient & instructions var and array
+//var theIngredients;
 var ingredientsArray;
+//var theInstructions;
+var instructionsArray;
 
 var url =
   "https://api.edamam.com/api/recipes/v2?type=public&q=Chicken&app_id=d4007c46&app_key=910d9b26c4011ee69fc785d5f7c6b120";
@@ -84,11 +96,37 @@ fetch(url)
     // getting instructions from recipe
     var theInstructions = objectData.hits[0].recipe.instructionLines;
 
+
     console.log(typeof theInstructions);
+
+    instructionsArray = [];
 
     for (const key in theInstructions) {
       console.log(theInstructions[key]);
+      instructionsArray.push(theInstructions[key]);
     }
+   console.log(instructionsArray);
+
+   for (var i = 0; i < instructionsArray.length; i++) {
+    var liE = document.createElement("li");
+    liE.innerText = instructionsArray[i];
+    showInstructionsList.appendChild(liE);
+    
+  }
+   for (var i = 0; i < instructionsArray.length; i++) {
+    var liE = document.createElement("li");
+    liE.innerText = instructionsArray[i];
+    showInstructionsList2.appendChild(liE);
+    
+  }
+   for (var i = 0; i < instructionsArray.length; i++) {
+    var liE = document.createElement("li");
+    liE.innerText = instructionsArray[i];
+    showInstructionsList3.appendChild(liE);
+    
+  }
+   
+
   });
 // }
 // Retrieve the saved diet selection from local storage
