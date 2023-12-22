@@ -30,6 +30,32 @@ fetch(url)
         console.log(theIngredients[key].text);
     }
 
+    //theIngredients = objectData.hits[0].recipe.ingredients
+    
+displayIngredients(theIngredients);
+
+function displayIngredients(theIngredientsR){
+    
+  ingredientsArray = [];
+ 
+  console.log("match");
+  for (const key in theIngredientsR ){
+      //console.log(`${key}: ${theIngredients[key].text}`);
+      console.log(theIngredientsR[key].text);
+      ingredientsArray.push(theIngredientsR[key].text);
+  }
+
+  console.log(ingredientsArray);
+
+  for (var i = 0; i < ingredientsArray.length; i++){
+      var liE = document.createElement("li");
+      liE.innerText = ingredientsArray[i];
+      showIngredientList.appendChild(liE);
+      
+     }
+ }
+
+
     // getting instructions from recipe
     var theInstructions = objectData.hits[0].recipe.instructionLines;
 
@@ -87,27 +113,3 @@ function saveCuisineSelection() {
   localStorage.setItem("selectedCuisineType", selectedCuisineType);
 }
 
-theIngredients = data.hits[0].recipe.ingredients
-    
-displayIngredients(theIngredients);
-
-function displayIngredients(theIngredientsR){
-    
-  ingredientsArray = [];
- 
-  console.log("match");
-  for (const key in theIngredientsR ){
-      //console.log(`${key}: ${theIngredients[key].text}`);
-      console.log(theIngredientsR[key].text);
-      ingredientsArray.push(theIngredientsR[key].text);
-  }
-
-  console.log(ingredientsArray);
-
-  for (var i = 0; i < ingredientsArray.length; i++){
-      var liE = document.createElement("li");
-      liE.innerText = ingredientsArray[i];
-      showIngredientList.appendChild(liE);
-      
-     }
- }
