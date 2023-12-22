@@ -1,3 +1,8 @@
+var showIngredientList = document.getElementById("showIngredientList");
+
+var theIngredients;
+var ingredientsArray;
+
 var url =
   "https://api.edamam.com/api/recipes/v2?type=public&q=Chicken&app_id=d4007c46&app_key=910d9b26c4011ee69fc785d5f7c6b120";
 // function getApi(){
@@ -81,3 +86,28 @@ function saveCuisineSelection() {
   // Save the selected cuisine type to local storage
   localStorage.setItem("selectedCuisineType", selectedCuisineType);
 }
+
+theIngredients = data.hits[0].recipe.ingredients
+    
+displayIngredients(theIngredients);
+
+function displayIngredients(theIngredientsR){
+    
+  ingredientsArray = [];
+ 
+  console.log("match");
+  for (const key in theIngredientsR ){
+      //console.log(`${key}: ${theIngredients[key].text}`);
+      console.log(theIngredientsR[key].text);
+      ingredientsArray.push(theIngredientsR[key].text);
+  }
+
+  console.log(ingredientsArray);
+
+  for (var i = 0; i < ingredientsArray.length; i++){
+      var liE = document.createElement("li");
+      liE.innerText = ingredientsArray[i];
+      showIngredientList.appendChild(liE);
+      
+     }
+ }
