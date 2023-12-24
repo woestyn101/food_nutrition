@@ -46,8 +46,7 @@
             <h2 class="h4 card-header custom-card-header">Instructions</h2>
             <div class="card-body">
               <p class="card-text">
-                Click the button below to open a form and provide information
-                for the following:
+                Lookup your favorite recipe with the button below:
               </p>
             </div>
             <ul class="list-group list-group-flush">
@@ -57,7 +56,7 @@
             </ul>
             <div class="card-footer">
               <button
-                class="btn btn-block btn-custom w-100"
+                class="btn btn-block btn-custom w-100 modalBtn"
                 data-bs-toggle="modal"
                 data-bs-target="#new-project-modal"
               >
@@ -68,6 +67,67 @@
         </div>
       </div>
     </main>
+    <!-- row for 3 recipes -->
+    <div class="row mx-1">
+      <!-- recipe 1 card -->
+      <div class="col">
+        <div class="card text-center justify-content-cente">
+          <div class="card-body">
+            <h4 class="card-title">Recipe 1:<span id="Recipe1"></span></h4>
+            <p>
+              <img class="recipeImages" id="recipeImage01" src="" />
+            </p>
+            <div id="showIngredients">
+              <h5>Ingredients:</h5>
+              <ul id="showIngredientList"></ul>
+            </div>
+            <div id="showInstructions">
+              <h5>Instructions:</h5>
+              <ul id="showInstructionList"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- recipe 2 card -->
+      <div class="col">
+        <div class="card text-center justify-content-center">
+          <div class="card-body">
+            <h4 class="card-title">Recipe 2:<span id="Recipe2"></span></h4>
+            <p>
+              <img class="recipeImages" id="recipeImage02" src="" />
+            </p>
+            <div id="showIngredients2">
+              <h5>Ingredients:</h5>
+              <ul id="showIngredientList2"></ul>
+            </div>
+            <div id="showInstructions2">
+              <h5>Instructions:</h5>
+              <ul id="showInstructionList2"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- recipe 3 card -->
+      <div class="col">
+        <div class="card text-center justify-content-center">
+          <div class="card-body">
+            <h4 class="card-title">Recipe 3:<span id="Recipe3"></span></h4>
+            <p>
+              <img class="recipeImages" id="recipeImage03" src="" />
+            </p>
+            <div id="showIngredients3">
+              <h5>Ingredients:</h5>
+              <ul id="showIngredientList3"></ul>
+            </div>
+            <div id="showInstructions3">
+              <h5>Instructions:</h5>
+              <ul id="showInstructionList3"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Modal for adding a new project -->
     <div
@@ -80,13 +140,13 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <form id="project-form">
-            <div class="modal-header custom-modal-header">
+            <div class="modal-header custom-modal-header modal-color">
               <h5 class="modal-title" id="new-project-modal-label">
                 Search your favorite recipe:
               </h5>
               <button
                 type="button"
-                class="btn-close btn-close-white"
+                class="btn-close btn-close-black"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
@@ -139,14 +199,14 @@
 
               <button
                 type="button"
-                class="btn btn-outline-secondary"
+                class="btn btn-danger modalBtnCancel"
                 data-bs-dismiss="modal"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                class="btn btn-custom"
+                class="btn btn-custom modalBtnLookup"
                 data-bs-dismiss="modal"
               >
                 Lookup
