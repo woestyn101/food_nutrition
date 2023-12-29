@@ -22,6 +22,7 @@ var instructionsArray;
 
 var url =
   "https://api.edamam.com/api/recipes/v2?type=public&q=Chicken&app_id=d4007c46&app_key=910d9b26c4011ee69fc785d5f7c6b120";
+
 // function getApi(){
 fetch(url)
   .then((data) => {
@@ -129,53 +130,60 @@ fetch(url)
 
   });
 // }
-// Retrieve the saved diet selection from local storage
-var savedDiet = localStorage.getItem("selectedDiet");
 
-// Set the dropdown value to the saved diet, if available
-if (savedDiet) {
-  document.getElementById("dietDropdown").value = savedDiet;
+
+function setupPreferences() {
+  // Diet Preference
+  var savedDiet = localStorage.getItem("selectedDiet");
+  var dietDropdown = document.getElementById("dietDropdown");
+
+  if (savedDiet) {
+    dietDropdown.value = savedDiet;
+  }
+
+  dietDropdown.addEventListener("change", function () {
+    localStorage.setItem("selectedDiet", dietDropdown.value);
+  });
+
+  // Meal Type Preference
+  var savedMealTypePreference = localStorage.getItem("selectedMealTypePreference");
+  var mealTypeDropdown = document.getElementById("MealTypeDropdown");
+
+  if (savedMealTypePreference) {
+    mealTypeDropdown.value = savedMealTypePreference;
+  }
+
+  mealTypeDropdown.addEventListener("change", function () {
+    localStorage.setItem("selectedMealTypePreference", mealTypeDropdown.value);
+  });
+
+  // Cuisine Preference
+  var savedCuisineType = localStorage.getItem("selectedCuisineType");
+  var cuisineDropdown = document.getElementById("cuisineDropdown");
+
+  if (savedCuisineType) {
+    cuisineDropdown.value = savedCuisineType;
+  }
+
+  cuisineDropdown.addEventListener("change", function () {
+    localStorage.setItem("selectedCuisineType", cuisineDropdown.value);
+  });
+
 }
 
-function saveDietSelection() {
-  var selectedDiet = document.getElementById("dietDropdown").value;
+function buildApiUrl() {
+  // Retrieve the saved preferences from local storage
+  var savedDiet = localStorage.getItem("selectedDiet");
+  var savedMealType = localStorage.getItem("selectedMealTypePreference");
+  var savedCuisineType = localStorage.getItem("selectedCuisineType");
 
-  // Save the selected diet to local storage
-  localStorage.setItem("selectedDiet", selectedDiet);
+  // Construct the API URL with the retrieved preferences
+  return `https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=d4007c46&app_key=85bfb7e1ed3ea9ce64f383de10f21d71&mealType=${savedMealType}&Diet=${savedDiet}&cuisineType=${savedCuisineType}`;
 }
 
-// Retrieve the saved health selection from local storage
-var savedMealTypePreference = localStorage.getItem(
-  "selectedMealTypePreference"
-);
+// Call the setupPreferences function to set up the preferences on page load
+setupPreferences();
 
-// Set the dropdown value to the saved health preference, if available
-if (savedMealTypePreference) {
-  document.getElementById("MealTypeDropdown").value = savedMealTypePreference;
-}
-
-function saveMealTypeSelection() {
-  var selectedMealTypePreference =
-    document.getElementById("MealTypeDropdown").value;
-
-  // Save the selected health preference to local storage
-  localStorage.setItem(
-    "selectedMealTypePreference",
-    selectedMealTypePreference
-  );
-}
-
-// Retrieve the saved cuisine selection from local storage
-var savedCuisineType = localStorage.getItem("selectedCuisineType");
-
-// Set the dropdown value to the saved cuisine type, if available
-if (savedCuisineType) {
-  document.getElementById("cuisineDropdown").value = savedCuisineType;
-}
-
-function saveCuisineSelection() {
-  var selectedCuisineType = document.getElementById("cuisineDropdown").value;
-
-  // Save the selected cuisine type to local storage
-  localStorage.setItem("selectedCuisineType", selectedCuisineType);
-}
+// Example of how to use the buildApiUrl function
+var apiUrl = buildApiUrl();
+console.log(apiUrl); // Use the apiUrl in your API request
