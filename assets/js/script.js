@@ -26,13 +26,14 @@ var recipe3 = document.getElementById("Recipe3");
 var ingredientsArray;
 //var theInstructions;
 var instructionsArray;
-
 var lookupBtn = document.getElementById("lookupBtn");
+  var savedDiet = localStorage.getItem("selectedDiet");
+  var savedMealType = localStorage.getItem("selectedMealTypePreference");
+  var savedCuisineType = localStorage.getItem("selectedCuisineType");
 
-
-
-var url =
-  "https://api.edamam.com/api/recipes/v2?type=public&q=Chicken&app_id=d4007c46&app_key=910d9b26c4011ee69fc785d5f7c6b120";
+  var url = `https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=d4007c46&app_key=85bfb7e1ed3ea9ce64f383de10f21d71&mealType=${savedMealType}&Diet=${savedDiet}&cuisineType=${savedCuisineType}`;
+ 
+// var url = "https://api.edamam.com/api/recipes/v2?type=public&q=Chicken&app_id=d4007c46&app_key=910d9b26c4011ee69fc785d5f7c6b120";
 
 // function getApi(){
 fetch(url)
@@ -61,7 +62,7 @@ fetch(url)
 
     // get ingredients from Api
     var theIngredients = objectData.hits[0].recipe.ingredients;
-    var theIngredients2 = objectData.hits[1].recipe.ingredients;
+var theIngredients2 = objectData.hits[1].recipe.ingredients;
     var theIngredients3 = objectData.hits[2].recipe.ingredients;
 
     for (const key in theIngredients) {
@@ -95,7 +96,7 @@ fetch(url)
       for (var i = 0; i < ingredientsArray.length; i++) {
         var liE = document.createElement("li");
         liE.innerText = ingredientsArray[i];
-      theList.appendChild(liE);
+        theList.appendChild(liE);
         
       }
 
@@ -106,7 +107,7 @@ fetch(url)
 
     // getting instructions from recipe
     var theInstructions = objectData.hits[0].recipe.instructionLines;
-     console.log()
+console.log()
 
     console.log(typeof theInstructions);
 
@@ -183,4 +184,3 @@ function setupPreferences() {
 
 // Call the setupPreferences function to set up the preferences on page load
 setupPreferences();
-
