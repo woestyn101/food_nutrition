@@ -33,3 +33,7 @@ ul {
   background-color: #107b6e;
   color:white;
 }
+
+.ingredient-heading {
+  font-weight: 500;
+}

@@ -19,6 +19,12 @@ var recipe1 = document.getElementById("Recipe1");
 var recipe2 = document.getElementById("Recipe2");
 var recipe3 = document.getElementById("Recipe3");
 
+//  variable instructions
+var instructionLink1 = document.getElementById("instructionLink1");
+var instructionLink2 = document.getElementById("instructionLink2");
+var instructionLink3 = document.getElementById("instructionLink3");
+
+
 
 
 // setting ingredient & instructions var and array
@@ -45,6 +51,8 @@ fetch(url)
     //objectData.hits[0].recipe.label
     //objectData.hits[0].recipe.ingredients
     //objectData.hits[0].recipe.instructionLines
+    console.log(objectData);
+    console.log(objectData.hits[0].recipe.url);
     console.log(objectData.hits[0].recipe);
     console.log(objectData.hits[0].recipe.image);
     console.log(objectData.hits[0].recipe.label);
@@ -59,6 +67,17 @@ fetch(url)
     recipe1.textContent = objectData.hits[0].recipe.label ;
     recipe2.textContent = objectData.hits[1].recipe.label ;
     recipe3.textContent = objectData.hits[2].recipe.label ;
+
+    // getting instructions url from api
+
+    var thelink1 = objectData.hits[0].recipe.url;
+    var thelink2 = objectData.hits[1].recipe.url;
+    var thelink3 = objectData.hits[2].recipe.url;
+    
+    // outputting instruction link to html
+    instructionLink1.innerHTML = "<a href='"+ thelink1 +"'>Link</a>";
+    instructionLink2.innerHTML = "<a href='"+ thelink2 +"'>Link</a>";
+    instructionLink3.innerHTML = "<a href='"+ thelink3 +"'>Link</a>";
 
     // get ingredients from Api
     var theIngredients = objectData.hits[0].recipe.ingredients;
@@ -105,41 +124,10 @@ var theIngredients2 = objectData.hits[1].recipe.ingredients;
 
    
 
-    // getting instructions from recipe
-    var theInstructions = objectData.hits[0].recipe.instructionLines;
-console.log()
-
-    console.log(typeof theInstructions);
-
-    instructionsArray = [];
-
-    for (const key in theInstructions) {
-      console.log(theInstructions[key]);
-      instructionsArray.push(theInstructions[key]);
-    }
-   console.log(instructionsArray);
-
-   for (var i = 0; i < instructionsArray.length; i++) {
-    var liE = document.createElement("li");
-    liE.innerText = instructionsArray[i];
-    showInstructionsList.appendChild(liE);
     
-  }
-   for (var i = 0; i < instructionsArray.length; i++) {
-    var liE = document.createElement("li");
-    liE.innerText = instructionsArray[i];
-    showInstructionsList2.appendChild(liE);
-    
-  }
-   for (var i = 0; i < instructionsArray.length; i++) {
-    var liE = document.createElement("li");
-    liE.innerText = instructionsArray[i];
-    showInstructionsList3.appendChild(liE);
-    
-  }
   
   });
-// }
+
 
 
 function setupPreferences() {
