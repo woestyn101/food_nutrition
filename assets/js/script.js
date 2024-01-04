@@ -14,12 +14,19 @@ var showImage1 = document.getElementById("recipeImage01");
 var showImage2 = document.getElementById("recipeImage02");
 var showImage3 = document.getElementById("recipeImage03");
 
+// variables for images labels
+var recipe1 = document.getElementById("Recipe1");
+var recipe2 = document.getElementById("Recipe2");
+var recipe3 = document.getElementById("Recipe3");
+
+
+
 // setting ingredient & instructions var and array
 //var theIngredients;
 var ingredientsArray;
 //var theInstructions;
 var instructionsArray;
-
+var lookupBtn = document.getElementById("lookupBtn");
   var savedDiet = localStorage.getItem("selectedDiet");
   var savedMealType = localStorage.getItem("selectedMealTypePreference");
   var savedCuisineType = localStorage.getItem("selectedCuisineType");
@@ -52,22 +59,29 @@ fetch(url)
     document.getElementById("data-output");
 
     showImage1.src = objectData.hits[0].recipe.image;
-    showImage2.src = objectData.hits[1].recipe.image;
-    showImage3.src = objectData.hits[2].recipe.image;
+    showImage2.src = objectData.hits[0].recipe.image;
+    showImage3.src = objectData.hits[0].recipe.image;
 
     // get ingredients from Api
-    var theIngredients = objectData.hits[1].recipe.ingredients;
+    var theIngredients = objectData.hits[0].recipe.ingredients;
 
     for (const key in theIngredients) {
       //console.log(`${key}: ${theIngredients[key].text}`);
       console.log(theIngredients[key].text);
     }
 
+    for (const key in theIngredients2) {
+      //console.log(`${key}: ${theIngredients[key].text}`);
+      console.log(theIngredients2[key].text);
+    }
+
     //theIngredients = objectData.hits[0].recipe.ingredients
 
-    displayIngredients(theIngredients);
+    displayIngredients(theIngredients, showIngredientList);
+    displayIngredients(theIngredients2, showIngredientList2);
+    displayIngredients(theIngredients3, showIngredientList3);
 
-    function displayIngredients(theIngredientsR) {
+    function displayIngredients(theIngredientsR, theList) {
       ingredientsArray = [];
 
       console.log("match");
@@ -82,32 +96,18 @@ fetch(url)
       for (var i = 0; i < ingredientsArray.length; i++) {
         var liE = document.createElement("li");
         liE.innerText = ingredientsArray[i];
-        showIngredientList.appendChild(liE);
+        theList.appendChild(liE);
         
       }
 
-      for (var i = 0; i < ingredientsArray.length; i++) {
-        var liE = document.createElement("li");
-        liE.innerText = ingredientsArray[i];
-        showIngredientList2.appendChild(liE);
-        
-      }
-
-      for (var i = 0; i < ingredientsArray.length; i++) {
-        var liE = document.createElement("li");
-        liE.innerText = ingredientsArray[i];
-        showIngredientList3.appendChild(liE);
-        
-      }
-
-
-
-
+      
     }
+
+   
 
     // getting instructions from recipe
     var theInstructions = objectData.hits[0].recipe.instructionLines;
-
+console.log()
 
     console.log(typeof theInstructions);
 
@@ -186,4 +186,5 @@ function setupPreferences() {
 setupPreferences();
 
 // Example of how to use the buildApiUrl function
-
+var apiUrl = buildApiUrl();
+console.log(apiUrl); // Use the apiUrl in your API request
