@@ -130,8 +130,7 @@ fetch(url)
     showInstructionsList3.appendChild(liE);
     
   }
-   
-
+  
   });
 // }
 
@@ -175,15 +174,6 @@ function setupPreferences() {
 
 }
 
-function buildApiUrl() {
-  // Retrieve the saved preferences from local storage
-  var savedDiet = localStorage.getItem("selectedDiet");
-  var savedMealType = localStorage.getItem("selectedMealTypePreference");
-  var savedCuisineType = localStorage.getItem("selectedCuisineType");
-
-  // Construct the API URL with the retrieved preferences
-  return `https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=d4007c46&app_key=85bfb7e1ed3ea9ce64f383de10f21d71&mealType=${savedMealType}&Diet=${savedDiet}&cuisineType=${savedCuisineType}`;
-}
 
 // Call the setupPreferences function to set up the preferences on page load
 setupPreferences();
