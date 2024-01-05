@@ -60,6 +60,9 @@ var lookupBtn = document.getElementById("lookupBtn");
 fetch(url)
   .then((data) => {
     return data.json();
+    
+  }).catch(err => {
+    console.log(err.message)
   })
   .then((objectData) => {
     //objectData.hits[0].recipe.image
