@@ -19,6 +19,27 @@ var recipe1 = document.getElementById("Recipe1");
 var recipe2 = document.getElementById("Recipe2");
 var recipe3 = document.getElementById("Recipe3");
 
+//  variable instructions
+var instructionLink1 = document.getElementById("instructionLink1");
+var instructionLink2 = document.getElementById("instructionLink2");
+var instructionLink3 = document.getElementById("instructionLink3");
+
+
+// variable additional info
+//time
+var time1 = document.getElementById("time1");
+var time2 = document.getElementById("time2");
+var time3 = document.getElementById("time3");
+
+// serving size
+var serving1 = document.getElementById("serving1");
+var serving2 = document.getElementById("serving2");
+var serving3 = document.getElementById("serving3");
+
+// calories
+var calories1E = document.getElementById("calories1");
+var calories2E = document.getElementById("calories2");
+var calories3E = document.getElementById("calories3");
 
 
 // setting ingredient & instructions var and array
@@ -45,6 +66,15 @@ fetch(url)
     //objectData.hits[0].recipe.label
     //objectData.hits[0].recipe.ingredients
     //objectData.hits[0].recipe.instructionLines
+    console.log(objectData);
+
+    // getting calories from api
+    var calories1 = objectData.hits[0].recipe.calories;
+    var calories2 = objectData.hits[1].recipe.calories;
+    var calories3 = objectData.hits[2].recipe.calories;
+
+    
+    console.log(objectData.hits[0].recipe.url);
     console.log(objectData.hits[0].recipe);
     console.log(objectData.hits[0].recipe.image);
     console.log(objectData.hits[0].recipe.label);
@@ -58,9 +88,58 @@ fetch(url)
     // console.log(objectData.hits[0].recipe.instructionLines);
     document.getElementById("data-output");
 
+    // outputting the recipe images
+
     showImage1.src = objectData.hits[0].recipe.image;
-    showImage2.src = objectData.hits[0].recipe.image;
-    showImage3.src = objectData.hits[0].recipe.image;
+    showImage2.src = objectData.hits[1].recipe.image;
+    showImage3.src = objectData.hits[2].recipe.image;
+
+    // outputting the recipe names
+
+    recipe1.textContent = objectData.hits[0].recipe.label ;
+    recipe2.textContent = objectData.hits[1].recipe.label ;
+    recipe3.textContent = objectData.hits[2].recipe.label ;
+
+    // getting instructions url from api
+
+    var thelink1 = objectData.hits[0].recipe.url;
+    var thelink2 = objectData.hits[1].recipe.url;
+    var thelink3 = objectData.hits[2].recipe.url;
+    
+    // outputting instruction link to html
+    instructionLink1.innerHTML = "<a href='"+ thelink1 +"'>Link</a>";
+    instructionLink2.innerHTML = "<a href='"+ thelink2 +"'>Link</a>";
+    instructionLink3.innerHTML = "<a href='"+ thelink3 +"'>Link</a>";
+
+     
+
+    // getting totaltime of recipe and outputting to html through function
+    checkTime(objectData.hits[0].recipe.totalTime, time1);
+    checkTime(objectData.hits[1].recipe.totalTime, time2);
+    checkTime(objectData.hits[2].recipe.totalTime, time3);
+
+    //function to check if time is 0 and then output to html
+
+    function checkTime(totalTime, output){
+      if (totalTime == 0){
+        output.textContent = "N/A";
+      }else{
+        output.textContent = totalTime;
+      }
+    }
+
+    //outputting serving size to html
+
+    serving1.textContent = objectData.hits[0].recipe.yield;
+    serving2.textContent = objectData.hits[1].recipe.yield;
+    serving3.textContent = objectData.hits[2].recipe.yield;
+
+    //outputting calories to html
+
+    calories1E.textContent = calories1.toFixed(2);
+    calories2E.textContent = calories2.toFixed(2);
+    calories3E.textContent = calories3.toFixed(2);
+
 
     // get ingredients from Api
     var theIngredients = objectData.hits[0].recipe.ingredients;
@@ -105,41 +184,10 @@ fetch(url)
 
    
 
-    // getting instructions from recipe
-    var theInstructions = objectData.hits[0].recipe.instructionLines;
-console.log()
-
-    console.log(typeof theInstructions);
-
-    instructionsArray = [];
-
-    for (const key in theInstructions) {
-      console.log(theInstructions[key]);
-      instructionsArray.push(theInstructions[key]);
-    }
-   console.log(instructionsArray);
-
-   for (var i = 0; i < instructionsArray.length; i++) {
-    var liE = document.createElement("li");
-    liE.innerText = instructionsArray[i];
-    showInstructionsList.appendChild(liE);
     
-  }
-   for (var i = 0; i < instructionsArray.length; i++) {
-    var liE = document.createElement("li");
-    liE.innerText = instructionsArray[i];
-    showInstructionsList2.appendChild(liE);
-    
-  }
-   for (var i = 0; i < instructionsArray.length; i++) {
-    var liE = document.createElement("li");
-    liE.innerText = instructionsArray[i];
-    showInstructionsList3.appendChild(liE);
-    
-  }
   
   });
-// }
+
 
 
 function setupPreferences() {

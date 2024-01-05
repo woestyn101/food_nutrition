@@ -33,3 +33,17 @@ ul {
   background-color: #107b6e;
   color:white;
 }
+
+.ingredient-heading {
+  font-weight: 500;
+}
+
+.add-info {
+  text-align: left;
+}
+
+.additional {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
