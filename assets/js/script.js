@@ -80,12 +80,6 @@ fetch(url)
     console.log(objectData.hits[0].recipe.label);
     console.log(objectData.hits[0].recipe.ingredients);
     console.log(objectData.hits[0].recipe.instructionLines);
-
-    // console.log(objectData.hits[0].recipe);
-    // console.log(objectData.hits[0].recipe.image);
-    // console.log(objectData.hits[0].recipe.label);
-    // console.log(objectData.hits[0].recipe.ingredients);
-    // console.log(objectData.hits[0].recipe.instructionLines);
     document.getElementById("data-output");
 
     // outputting the recipe images
@@ -143,6 +137,8 @@ fetch(url)
 
     // get ingredients from Api
     var theIngredients = objectData.hits[0].recipe.ingredients;
+var theIngredients2 = objectData.hits[1].recipe.ingredients;
+    var theIngredients3 = objectData.hits[2].recipe.ingredients;
 
     for (const key in theIngredients) {
       //console.log(`${key}: ${theIngredients[key].text}`);
@@ -232,7 +228,3 @@ function setupPreferences() {
 
 // Call the setupPreferences function to set up the preferences on page load
 setupPreferences();
-
-// Example of how to use the buildApiUrl function
-var apiUrl = buildApiUrl();
-console.log(apiUrl); // Use the apiUrl in your API request
