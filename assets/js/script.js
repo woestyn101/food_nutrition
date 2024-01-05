@@ -43,8 +43,10 @@ var calories3E = document.getElementById("calories3");
 
 
 // setting ingredient & instructions var and array
+
 //var theIngredients;
 var ingredientsArray;
+
 //var theInstructions;
 var instructionsArray;
 var lookupBtn = document.getElementById("lookupBtn");
@@ -60,26 +62,20 @@ var lookupBtn = document.getElementById("lookupBtn");
 fetch(url)
   .then((data) => {
     return data.json();
+    
+  }).catch(err => {
+    console.log(err.message)
   })
   .then((objectData) => {
-    //objectData.hits[0].recipe.image
-    //objectData.hits[0].recipe.label
-    //objectData.hits[0].recipe.ingredients
-    //objectData.hits[0].recipe.instructionLines
+    
     console.log(objectData);
 
     // getting calories from api
     var calories1 = objectData.hits[0].recipe.calories;
     var calories2 = objectData.hits[1].recipe.calories;
     var calories3 = objectData.hits[2].recipe.calories;
-
+   
     
-    console.log(objectData.hits[0].recipe.url);
-    console.log(objectData.hits[0].recipe);
-    console.log(objectData.hits[0].recipe.image);
-    console.log(objectData.hits[0].recipe.label);
-    console.log(objectData.hits[0].recipe.ingredients);
-    console.log(objectData.hits[0].recipe.instructionLines);
     document.getElementById("data-output");
 
     // outputting the recipe images
@@ -106,7 +102,6 @@ fetch(url)
     instructionLink3.innerHTML = "<a href='"+ thelink3 +"'>Link</a>";
 
      
-
     // getting totaltime of recipe and outputting to html through function
     checkTime(objectData.hits[0].recipe.totalTime, time1);
     checkTime(objectData.hits[1].recipe.totalTime, time2);
@@ -141,12 +136,10 @@ var theIngredients2 = objectData.hits[1].recipe.ingredients;
     var theIngredients3 = objectData.hits[2].recipe.ingredients;
 
     for (const key in theIngredients) {
-      //console.log(`${key}: ${theIngredients[key].text}`);
       console.log(theIngredients[key].text);
     }
 
     for (const key in theIngredients2) {
-      //console.log(`${key}: ${theIngredients[key].text}`);
       console.log(theIngredients2[key].text);
     }
 
@@ -159,9 +152,7 @@ var theIngredients2 = objectData.hits[1].recipe.ingredients;
     function displayIngredients(theIngredientsR, theList) {
       ingredientsArray = [];
 
-      console.log("match");
       for (const key in theIngredientsR) {
-        //console.log(`${key}: ${theIngredients[key].text}`);
         console.log(theIngredientsR[key].text);
         ingredientsArray.push(theIngredientsR[key].text);
       }
@@ -174,13 +165,9 @@ var theIngredients2 = objectData.hits[1].recipe.ingredients;
         theList.appendChild(liE);
         
       }
-
       
     }
-
-   
-
-    
+      
   
   });
 
