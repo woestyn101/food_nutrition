@@ -50,7 +50,7 @@
               </p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Select a Diet</li>
+              <li class="list-group-item">Select a Dish Type</li>
               <li class="list-group-item">Select a Meal Type</li>
               <li class="list-group-item">Select a Cuisine Type</li>
             </ul>
@@ -192,15 +192,13 @@
               <div class="mb-3">
                 <!-- Diet -->
 
-                <label for="dietDropdown">Select a Diet:</label>
+                <label for="dietDropdown">Select a dish Type:</label>
                 <select id="dietDropdown" onchange="saveDietSelection()">
                   <option value="none">None</option>
-                  <option value="balanced">Balanced</option>
-                  <option value="high-Fiber">High-Fiber</option>
-                  <option value="high-Protein">High-Protein</option>
-                  <option value="low-Carb">Low-Carb</option>
-                  <option value="low-Fat">Low-Fat</option>
-                  <option value="low-Sodium">Low-Sodium</option>
+                  <option value="salad">Salad</option>
+                  <option value="sandwiches">Sandwiches</option>
+                  <option value="soup">Soup</option>
+                  <option value="special occasions">special occasions</option>
                 </select>
               </div>
               <!-- Meal -->
@@ -211,7 +209,7 @@
                   onchange="saveMealTypeSelection()"
                 >
                   <option value="none">None</option>
-                  <option value="breakfast">breakfast</option>
+                  <option value="brunch">brunch</option>
                   <option value="lunch">lunch</option>
                   <option value="dinner">dinner</option>
                 </select>
@@ -227,6 +225,7 @@
                   <option value="mexican">Mexican</option>
                 </select>
               </div>
+              <p class="text-center"><b>Some selections may not show results.</b></p>
             </div>
             <div class="modal-footer">
               <!--
