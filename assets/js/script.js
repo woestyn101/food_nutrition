@@ -57,13 +57,7 @@ var dietDropdown = document.getElementById("dietDropdown");
 var mealTypeDropdown = document.getElementById("MealTypeDropdown");
 var cuisineDropdown = document.getElementById("cuisineDropdown");
 
-  // var savedDiet = localStorage.getItem("selectedDiet");
-  // var savedMealType = localStorage.getItem("selectedMealTypePreference");
-  // var savedCuisineType = localStorage.getItem("selectedCuisineType");
-
   
- 
-// var url = "https://api.edamam.com/api/recipes/v2?type=public&q=Chicken&app_id=d4007c46&app_key=910d9b26c4011ee69fc785d5f7c6b120";
 projectFormEl.on('submit', handleProjectFormSubmit);
 
 function handleProjectFormSubmit(event) {
@@ -79,8 +73,7 @@ function handleProjectFormSubmit(event) {
   savedMealType = localStorage.getItem("selectedMealTypePreference");
   savedDiet = localStorage.getItem("selectedDiet");
 
-  // var url = `https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=d4007c46&app_key=85bfb7e1ed3ea9ce64f383de10f21d71&mealType=lunch&dishType=Sandwishes&cuisineType=American`;
-
+  
   var url = "https://api.edamam.com/api/recipes/v2?type=public&q=Chicken&app_id=d4007c46&app_key=910d9b26c4011ee69fc785d5f7c6b120&cuisineType="+ savedCuisineType + "&mealType="+ savedMealType + "&dishType=" + savedDiet;
 
   // function getApi(){
@@ -200,47 +193,3 @@ var theIngredients2 = objectData.hits[1].recipe.ingredients;
 }
 
 
-
-
-// function setupPreferences() {
-//   // Diet Preference
-//  // var savedDiet = localStorage.getItem("selectedDiet");
-//   //var dietDropdown = document.getElementById("dietDropdown");
-
-//   // if (savedDiet) {
-//   //   dietDropdown.value = savedDiet;
-//   // }
-
-//   dietDropdown.addEventListener("change", function () {
-//     localStorage.setItem("selectedDiet", dietDropdown.value);
-//   });
-
-//   // Meal Type Preference
-//   // var savedMealTypePreference = localStorage.getItem("selectedMealTypePreference");
-//   var mealTypeDropdown = document.getElementById("MealTypeDropdown");
-
-//   // if (savedMealTypePreference) {
-//   //   mealTypeDropdown.value = savedMealTypePreference;
-//   // }
-
-//   mealTypeDropdown.addEventListener("change", function () {
-//     localStorage.setItem("selectedMealTypePreference", mealTypeDropdown.value);
-//   });
-
-//   // Cuisine Preference
-//   // var savedCuisineType = localStorage.getItem("selectedCuisineType");
-//   // var cuisineDropdown = document.getElementById("cuisineDropdown");
-
-//   // if (savedCuisineType) {
-//   //   cuisineDropdown.value = savedCuisineType;
-//   // }
-
-//   cuisineDropdown.addEventListener("change", function () {
-//     localStorage.setItem("selectedCuisineType", cuisineDropdown.value);
-//   });
-
-// }
-
-
-// // Call the setupPreferences function to set up the preferences on page load
-// setupPreferences();
