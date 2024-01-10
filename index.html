@@ -193,7 +193,7 @@
                 <!-- Diet -->
 
                 <label for="dietDropdown">Select a dish Type:</label>
-                <select id="dietDropdown" onchange="saveDietSelection()">
+                <select id="dietDropdown">
                   <option value="none">None</option>
                   <option value="salad">Salad</option>
                   <option value="sandwiches">Sandwiches</option>
@@ -204,10 +204,7 @@
               <!-- Meal -->
               <div class="mb-3">
                 <label for="MealTypeDropdown">Meal Types</label>
-                <select
-                  id="MealTypeDropdown"
-                  onchange="saveMealTypeSelection()"
-                >
+                <select id="MealTypeDropdown">
                   <option value="none">None</option>
                   <option value="brunch">brunch</option>
                   <option value="lunch">lunch</option>
@@ -217,7 +214,7 @@
               <!-- cuisine types -->
               <div class="mb-3">
                 <label for="cuisineDropdown">Select Cuisine Type:</label>
-                <select id="cuisineDropdown" onchange="saveCuisineSelection()">
+                <select id="cuisineDropdown">
                   <option value="none">None</option>
                   <option value="american">American</option>
                   <option value="asian">Asian</option>
@@ -225,7 +222,9 @@
                   <option value="mexican">Mexican</option>
                 </select>
               </div>
-              <p class="text-center"><b>Some selections may not show results.</b></p>
+              <p class="text-center">
+                <b>Some selections may not show results.</b>
+              </p>
             </div>
             <div class="modal-footer">
               <!--
@@ -259,6 +258,7 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script src="./assets/js/script.js"></script>
   </body>
